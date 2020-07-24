@@ -60,53 +60,51 @@ POST'/api/auth/signup'
 POST '/api/auth/signin'
 -	Fetches a jwt if the user provides correct email/password combination.
 -	Request Arguments: email ad password.
-      {
-        "email":"user0@gmail.com",
-        "password":"userpassword"
-       }
+    	{
+			"email":"user0@gmail.com",
+			"password":"userpassword"
+       	}
 -	Returns an object with id (an assigned user id), username, profileImageUrl, and token (jwt token for user authorization).
-      {
-        "id": "5f1b56c4be79a6275324a09e",
-        "username": "user0",
-        "profileImageUrl": "http://myImage.png",
-        "token": "easdfjklasdfgDZKE"
-       }
+    	{
+			"id": "5f1b56c4be79a6275324a09e",
+			"username": "user0",
+			"profileImageUrl": "http://myImage.png",
+			"token": "easdfjklasdfgDZKE"
+       	}
  ```
  
 Create, read, or delete messages:
  ```
- POST '/api/users/:id/messages'
--	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
--	Request Arguments: None
--	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
-    {'1' : "Science",
-     '2' : "Art",
-     '3' : "Geography",
-     '4' : "History",
-     '5' : "Entertainment",
-     '6' : "Sports"}
+ POST '/api/users/:user_id/messages'
+-	If a user provides a valid signin token, add a new message that references the user with "user_id" in the database.
+-	Request Arguments: a valid bearer jwt and text. 
+		{"text":"My first message!!"}
+-	Returns: An object with the information of the message created.
+		{
+			"_id": "5f1b5a4fbe79a6275324a09f",
+			"text": "My first message!!",
+			"user": {
+				"_id": "5f1b56c4be79a6275324a09e",
+				"username": "user0",
+				"profileImageUrl": "http://myImage.png"
+			},
+			"createdAt": "2020-07-24T22:01:51.124Z",
+			"updatedAt": "2020-07-24T22:01:51.124Z",
+			"__v": 0
+		}
 
-GET '/api/users/:id/messages/:message_id'
--	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
--	Request Arguments: None
--	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
-    {'1' : "Science",
-     '2' : "Art",
-     '3' : "Geography",
-     '4' : "History",
-     '5' : "Entertainment",
-     '6' : "Sports"}
-
-DELETE '/api/users/:id/messages/:message_id'
--	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
--	Request Arguments: None
--	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
-{'1' : "Science",
- '2' : "Art",
- '3' : "Geography",
- '4' : "History",
- '5' : "Entertainment",
- '6' : "Sports"}
+DELETE '/api/users/:user_id/messages/:message_id'
+-	If a user provides a valid signin token, remove the message with message_id that was posted by self.
+-	Request Arguments: a valid bearer jwt
+-	Returns: An object with the information of the message deleted.
+		{
+			"_id": "5f1b5a4fbe79a6275324a09f",
+			"text": "My first message!!",
+			"user": "5f1b56c4be79a6275324a09e",
+			"createdAt": "2020-07-24T22:01:51.124Z",
+			"updatedAt": "2020-07-24T22:01:51.124Z",
+			"__v": 0
+		}
 ```
 
 View all messages
