@@ -10,6 +10,28 @@ Backend: NodeJS/Express
 
 Database: MongoDB
 
+### Project Structure
+
+  ```sh
+  ├── README.md
+  ├── index.js *** the main driver of the app. 
+  ├── package.json *** The dependencies we need to install "npm start"
+  ├── routes
+  │   ├── auth.js 
+  │   └── message.js
+  ├── models
+  │   ├── index.js *** connect with MongoDB database and export all models
+  │   ├── message.js
+  │   └── user.js
+  ├── middleware
+  │   └── auth.js *** middleware for user authentication and authorization
+  ├── handlers
+  │   ├── auth.js
+  │   ├── error.js
+  │   └── message.js  
+  └── node_modules
+  ```
+
 ## Getting Started
 
 #### Installing Node and NPM
