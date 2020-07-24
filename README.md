@@ -110,14 +110,33 @@ DELETE '/api/users/:user_id/messages/:message_id'
 View all messages
  ```
  GET '/api/messages'
--	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
--	Request Arguments: None
+-	If a user provides a valid signin token, fetch a list of messages created by all users sorted by time in descending order.
+-	Request Arguments: a valid bearer jwt
 -	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
-{'1' : "Science",
- '2' : "Art",
- '3' : "Geography",
- '4' : "History",
- '5' : "Entertainment",
- '6' : "Sports"}\
-  ```
+
+	   [
+	    {
+		"_id": "5f1b4096a4b78801e81e1f29",
+		"text": "Hi from user3",
+		"user": {
+		    "_id": "5f1b408aa4b78801e81e1f28",
+		    "username": "user3",
+		    "profileImageUrl": ""
+		},
+		"createdAt": "2020-07-24T20:12:06.416Z",
+		"updatedAt": "2020-07-24T20:12:06.416Z",
+		"__v": 0
+	    },
+	    {
+		"_id": "5f1b3f20a4b78801e81e1f27",
+		"text": "My first message!!!",
+		"user": {
+		    "_id": "5f1a001229d876027faa6d83",
+		    "username": "user2"
+		},
+		"createdAt": "2020-07-24T20:05:52.818Z",
+		"updatedAt": "2020-07-24T20:05:52.818Z",
+		"__v": 0
+	    }
+	]
 
