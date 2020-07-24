@@ -112,7 +112,7 @@ View all messages
  GET '/api/messages'
 -	If a user provides a valid signin token, fetch a list of messages created by all users sorted by time in descending order.
 -	Request Arguments: a valid bearer jwt
--	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
+-	Returns a list of messages.
 
 	   [
 	    {
