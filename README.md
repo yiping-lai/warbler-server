@@ -38,8 +38,9 @@ node app.js
 
 ## Sample request for each endpoint. 
 
+For user autourization:
 ```
-GET '/categories'
+POST'/api/auth/signup'
 -	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
 -	Request Arguments: None
 -	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
@@ -49,5 +50,54 @@ GET '/categories'
  '4' : "History",
  '5' : "Entertainment",
  '6' : "Sports"}
+ 
+POST '/api/auth/signin'
+-	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+-	Request Arguments: None
+-	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
+{'1' : "Science",
+ '2' : "Art",
+ '3' : "Geography",
+ '4' : "History",
+ '5' : "Entertainment",
+ '6' : "Sports"}
+ ```
+ 
+ For create, read, and delete messages
+ ```
+ POST '/api/users/:id/messages'
+-	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+-	Request Arguments: None
+-	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
+{'1' : "Science",
+ '2' : "Art",
+ '3' : "Geography",
+ '4' : "History",
+ '5' : "Entertainment",
+ '6' : "Sports"}
+
+GET '/api/users/:id/messages/:message_id'
+-	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+-	Request Arguments: None
+-	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
+{'1' : "Science",
+ '2' : "Art",
+ '3' : "Geography",
+ '4' : "History",
+ '5' : "Entertainment",
+ '6' : "Sports"}
+
+DELETE '/api/users/:id/messages/:message_id'
+-	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+-	Request Arguments: None
+-	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
+{'1' : "Science",
+ '2' : "Art",
+ '3' : "Geography",
+ '4' : "History",
+ '5' : "Entertainment",
+ '6' : "Sports"}
+
+
 
 ```
