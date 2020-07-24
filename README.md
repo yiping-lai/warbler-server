@@ -6,7 +6,7 @@ This is a web API where users can sign up and sign in to view all messages and c
 
 ## About the Stack
 
-Backend: NodeJS, Express
+Backend: NodeJS/Express
 
 Database: MongoDB
 
