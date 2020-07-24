@@ -63,7 +63,7 @@ POST '/api/auth/signin'
  '6' : "Sports"}
  ```
  
- For create, read, and delete messages
+Create, read, or delete messages:
  ```
  POST '/api/users/:id/messages'
 -	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
@@ -97,7 +97,19 @@ DELETE '/api/users/:id/messages/:message_id'
  '4' : "History",
  '5' : "Entertainment",
  '6' : "Sports"}
-
-
-
 ```
+
+View all messages
+ ```
+ GET '/api/messages'
+-	Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+-	Request Arguments: None
+-	Returns: An object with a single key, categories, that contains a object of id: category_string key:value pairs.
+{'1' : "Science",
+ '2' : "Art",
+ '3' : "Geography",
+ '4' : "History",
+ '5' : "Entertainment",
+ '6' : "Sports"}\
+  ```
+
